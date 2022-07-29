@@ -1,0 +1,35 @@
+## Qual a base?
+
+````JS
+
+function Welcome(props) {
+  return <h1>Olá, {props.name}</h1>;
+}
+`````
+## Sem instalação
+- Variáveis
+    - const, let, var
+    - Tipos de dados do JavaScript: string, bool, array, objeto
+- Objeto
+    - Acessar propriedades de objeto
+        - via .
+        - via string
+- Arrays
+    -Métodos de Arrays
+- Função
+    - Execução blocos de código
+    - Parametros
+    - Retorno
+- JSX
+    - HTML dentro do arquivo JavaScript
+    - Interpolação
+        - Como rodar códigos dinamicos no meio do template JSX
+==================
+## Com Instalação
+- Node
+    - Como instalar?
+    - Para que serve?
+- Package Managers
+    - Para que serve?
+    - Como instala algo?
+    - Como cria um projeto?

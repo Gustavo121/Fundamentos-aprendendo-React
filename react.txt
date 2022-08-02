@@ -33,3 +33,42 @@ function Welcome(props) {
     - Para que serve?
     - Como instala algo?
     - Como cria um projeto?
+
+==================
+
+ReactJS
+
+*O que você precisa saver para aprender React?
+HTML + CSS 
+JavaScript
+
+*O que é o React e para que ele serve?
+Para que você trabalhe com Single Page Application
+
+*O que é Single Page Application?
+Interações na mesma pagina, sem que recarregue o seu browser. "Pagina Unica"
+
+*Principios do React
+props + state + render = view
+Toda aplicação é baseada em componentes
+
+
+ex.
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// props + [state] + render = view
+
+function ResultadoSoma({ a, b}) {
+  return `O resultado da soma de ${a} + ${b} = ${a + b}`
+}
+
+const props = { a: 1, b: 2};
+
+ReactDOM.render(
+  React.createElement('div', null, 
+    React.createElement('h1', null, 'Meu título'),
+    React.createElement(ResultadoSoma, props),
+    ),
+    document.getElementById('root'),
+)

@@ -63,12 +63,97 @@ function ResultadoSoma({ a, b}) {
   return `O resultado da soma de ${a} + ${b} = ${a + b}`
 }
 
-const props = { a: 1, b: 2};
+const props = { a: 1, b: 2}; // e nao precisa de variavel
 
 ReactDOM.render(
+  // Esse trecho subistitui o de baixo !
+  <div>
+    <h1>Meu título</h1>
+    <ResultadoSoma a={a} b={b}/>
+  </div>
+  //
+  //Forma acima mais curta!
   React.createElement('div', null, 
     React.createElement('h1', null, 'Meu título'),
     React.createElement(ResultadoSoma, props),
     ),
     document.getElementById('root'),
 )
+
+
+
+***Como fica
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// props + [state] + render = view
+
+function ResultadoSoma({ a, b}) {
+  return `O resultado da soma de ${a} + ${b} = ${a + b}`
+}
+
+ReactDOM.render(
+  <div>
+    <h1>Meu título</h1>
+    <ResultadoSoma a={1} b={2}/>
+  </div>,
+    document.getElementById('root'),
+)
+
+
+
+
+
+
+
+
+
+
+
+import React, { useState} from 'react';
+
+const users = [
+  'John Doe',
+  'Jane Doe',
+]
+
+
+const ResultadoSoma = ({ a, b}) => {
+  const [showResult, setShowResult] = useState(false);
+  const [values, setValues] = useState({ a, b});
+
+  function onChange(event) {
+    setValues({
+      ...values,
+      [event.target.name]: event.target.value
+    });
+  }
+
+  return (
+    <>
+      <input name="a" value={values.a} onChange={onChange}/>
+      <input name="b" value={values.b} onChange={onChange}/>
+      {showResult && (
+        <>
+        O resultado de {values.a} + {values.b} ={' '}
+        {Number(values.a) + Number(values.b)}
+        </>
+      )} 
+      
+      <button onClick={() => setShowResult(!showResult)}>
+        {showResult 
+        ? 'Esconder Resultado'
+        : 'Mostrar Resultado'}
+      </button>
+
+    <ul>
+      {users.map((user) => (
+        <li>{user}</li>
+      ))}
+    </ul>
+    </>
+  );
+}
+
+export default ResultadoSoma;
